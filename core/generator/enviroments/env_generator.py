@@ -27,6 +27,12 @@ class EnvGenerator(BaseGenerator):
                 value=Constant(value=passwd),
             ),
         )
+        self.ast_body.append(
+            Assign(
+                targets=[Name(id="LINE_PRIVATE_BOT_AUTH_TOKEN", ctx=Store())],
+                value=Constant(value=""),
+            ),
+        )
 
     def __create_ast_module(self, email: str, passwd: str) -> Module:
         """create ast module
