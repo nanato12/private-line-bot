@@ -9,3 +9,4 @@ load_dotenv(dotenv_path)
 
 EMAIL = os.environ.get("LINE_PRIVATE_BOT_EMAIL")
 PASSWORD = os.environ.get("LINE_PRIVATE_BOT_PASSWORD")
+AUTH_TOKEN = os.environ.get("LINE_PRIVATE_BOT_AUTH_TOKEN")
