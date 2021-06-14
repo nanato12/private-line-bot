@@ -68,6 +68,7 @@ class CommandGenerator(BaseGenerator):
         """
 
         self.ast_body = []
+        self._ast_add_license()
         self.__ast_import_from()
         self.__ast_class_def()
         return Module(body=self.ast_body, type_ignores=[])
