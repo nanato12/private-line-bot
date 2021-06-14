@@ -25,12 +25,13 @@ def login() -> LINE:
 
 
 def run(poll: OEPoll) -> None:
+    loop = asyncio.get_event_loop()
     while True:
         try:
             ops: Optional[List[Operation]] = poll.singleTrace(count=50)
             if ops is not None:
                 for op in ops:
-                    asyncio.get_event_loop().run_until_complete(
+                    loop.run_until_complete(
                         execute(poll.client, op)
                     )
                     poll.setRevision(op.revision)
