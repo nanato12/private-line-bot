@@ -1,0 +1,29 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+python-dotenv = "*"
+astor = "*"
+thrift = "*"
+requests = "*"
+rsa = "*"
+hyper = "*"
+httpx = "*"
+httplib2 = "*"
+python-axolotl-curve25519 = "*"
+pycryptodome = "*"
+
+[dev-packages]
+black = "*"
+isort = "*"
+flake8 = "*"
+mypy = "*"
+pytest = "*"
+
+[requires]
+python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true
