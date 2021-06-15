@@ -23,12 +23,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
+from commands.mid_command import MidCommand
 from typing import Optional
 from akad.ttypes import Message, MIDType, Operation
 from line import LINE
 
 
-def RECEIVE_MESSAGE(bot: LINE, op: Operation) ->None:
+def RECEIVE_MESSAGE(bot: LINE, op: Operation) -> None:
     """Operation No: 26
 
     Args:
@@ -45,3 +46,6 @@ def RECEIVE_MESSAGE(bot: LINE, op: Operation) ->None:
             to: str = message._from
         else:
             return
+
+        if MidCommand.is_executable(message.text):
+            bot.sendMessage(to, message._from)
