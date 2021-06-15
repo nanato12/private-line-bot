@@ -31,9 +31,7 @@ def run(poll: OEPoll) -> None:
             ops: Optional[List[Operation]] = poll.singleTrace(count=50)
             if ops is not None:
                 for op in ops:
-                    loop.run_until_complete(
-                        execute(poll.client, op)
-                    )
+                    loop.run_until_complete(execute(poll.client, op))
                     poll.setRevision(op.revision)
         except Exception as e:
             traceback.print_tb(e.__traceback__)
